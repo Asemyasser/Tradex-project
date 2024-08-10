@@ -1,0 +1,82 @@
+/* Small devices (landscape phones, 530px and up) */
+@media (min-width: 530px) {
+  .section-team .card:hover .card-body {
+    top: 46% !important;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 764px) {
+  .section-services .card {
+    width: calc(100% / 2 - 16px);
+  }
+
+  .section-team .card:hover .card-body {
+    top: 33% !important;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .section-services .card {
+    width: calc(100% / 3 - 16px * 2);
+  }
+
+  .section-team .card:hover .card-body {
+    top: 28% !important;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .section-team .card:hover .card-body {
+    top: 35% !important;
+  }
+}
+
+/* Extra extra large devices (large desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  .section-team .card:hover .card-body {
+    top: 40% !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .about-features {
+    left: 4% !important;
+  }
+
+  .about-image img {
+    z-index: 1;
+  }
+
+  .about-image .about-features:hover {
+    z-index: 2;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-image .about-features {
+    z-index: 2;
+  }
+}
+
+@media (max-width: 764px) {
+  .about-features {
+    left: 3% !important;
+  }
+
+  .about-image img {
+    z-index: 3;
+  }
+
+  .about-image .about-features:hover {
+    z-index: 4;
+  }
+}
+
+@media (max-width: 530px) {
+  .about-image .about-features {
+    display: none !important;
+  }
+}
