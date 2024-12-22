@@ -77,7 +77,7 @@ module.exports = {
       template: "./src/index.html", // Use this HTML template
     }),
     new MiniCssExtractPlugin({
-      filename: "styles.css", // Output CSS file
+      filename: "style.css", // Output CSS file
     }),
   ],
   devtool: "source-map", // Generate source maps for debugging
