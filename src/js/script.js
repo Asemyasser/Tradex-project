@@ -1,3 +1,8 @@
+import "../css/all.min.css";
+import "../css/bootstrap.min.css";
+import "../css/queries.css";
+import "../css/style.css";
+
 // Get the button
 let mybutton = document.getElementById("myBtn");
 
