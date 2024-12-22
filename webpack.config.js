@@ -65,19 +65,8 @@ module.exports = {
       {
         test: /\.css$/, // Process CSS files
         use: [
-          // MiniCssExtractPlugin.loader, // Extract CSS into a separate file
-          // "css-loader", // Load CSS files
-          "style-loader",
-          "css-loader",
-        ],
-      },
-      // For SCSS files
-      {
-        test: /\.(scss|sass)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader", // Load CSS
-          "sass-loader", // Compile SCSS to CSS
+          MiniCssExtractPlugin.loader, // Extract CSS into a separate file
+          "css-loader", // Load CSS files
         ],
       },
     ],
