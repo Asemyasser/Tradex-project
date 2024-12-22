@@ -46,8 +46,8 @@ module.exports = {
   entry: "./src/js/script.js", // Entry point for your app
   output: {
     path: path.resolve(__dirname, "dist"), // Output directory
-    filename: "bundle.js", // Output file name
-    publicPath: "/", // Public path for assets
+    filename: "bundle.js", // Output JS file name
+    publicPath: "./", // Public path for assets
   },
   mode: "production", // Set mode to 'production' for optimized build
   module: {
@@ -69,6 +69,20 @@ module.exports = {
           "css-loader", // Load CSS files
         ],
       },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/, // Handle image files
+        type: "asset/resource",
+        generator: {
+          filename: "assets/images/[name][ext]", // Output folder for images
+        },
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/, // Handle font files
+        type: "asset/resource",
+        generator: {
+          filename: "assets/fonts/[name][ext]", // Output folder for fonts
+        },
+      },
     ],
   },
   plugins: [
@@ -77,7 +91,7 @@ module.exports = {
       template: "./src/index.html", // Use this HTML template
     }),
     new MiniCssExtractPlugin({
-      filename: "style.css", // Output CSS file
+      filename: "style.css", // Output CSS file name
     }),
   ],
   devtool: "source-map", // Generate source maps for debugging
