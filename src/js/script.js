@@ -1,24 +1,31 @@
 // Get the button
 let mybutton = document.getElementById("myBtn");
 
+// Initialize a variable to track scrolling status
+let hasScrolled = false;
+
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
   scrollFunction();
 };
 
 function scrollFunction() {
+  // Check if the user has scrolled more than 500px from the top
   if (
-    (document.body.scrollTop > 500 ||
-      document.documentElement.scrollTop > 500) &&
-    !hasScrolled
+    document.body.scrollTop > 500 ||
+    document.documentElement.scrollTop > 500
   ) {
-    mybutton.style.display = "block";
-    achievmentCounter(achievmentElements[0], 8000, 200, 50);
-    achievmentCounter(achievmentElements[1], 810, 50, 100);
-    achievmentCounter(achievmentElements[2], 2000, 100, 80);
-    achievmentCounter(achievmentElements[3], 20, 5, 150);
-    hasScrolled = true;
+    if (!hasScrolled) {
+      // Show the button and start achievement counters
+      mybutton.style.display = "block";
+      achievmentCounter(achievmentElements[0], 8000, 200, 50);
+      achievmentCounter(achievmentElements[1], 810, 50, 100);
+      achievmentCounter(achievmentElements[2], 2000, 100, 80);
+      achievmentCounter(achievmentElements[3], 20, 5, 150);
+      hasScrolled = true;
+    }
   } else {
+    // Hide the button and reset the scrolling status
     mybutton.style.display = "none";
     hasScrolled = false;
   }
@@ -26,22 +33,29 @@ function scrollFunction() {
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
 }
 
+// Select all achievement elements
 const achievmentElements = document.querySelectorAll(
   ".section-achievments .text-box p"
 );
+
+// Log the achievement elements (optional debugging step)
 console.log(achievmentElements);
 
+// Achievement counter function
 const achievmentCounter = (element, maxNum, counter, time) => {
   let i = 0;
   const interv = setInterval(() => {
     console.log("counting");
     i += counter;
     element.textContent = i;
-    if (i >= maxNum) clearInterval(interv);
+    if (i >= maxNum) {
+      element.textContent = maxNum; // Ensure it stops exactly at the max number
+      clearInterval(interv);
+    }
   }, time);
 };
 
