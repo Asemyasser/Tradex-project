@@ -41,6 +41,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./src/js/script.js", // Entry point for your app
@@ -86,6 +87,14 @@ module.exports = {
     ],
   },
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src/imgs"),
+          to: "assets/images",
+        },
+      ],
+    }),
     new CleanWebpackPlugin(), // Clean the 'dist' folder before each build
     new HtmlWebpackPlugin({
       template: "./src/index.html", // Use this HTML template
