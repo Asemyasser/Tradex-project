@@ -6,6 +6,10 @@
   .header-container {
     overflow-x: hidden;
   }
+
+  .carousel-indicators {
+    left: 94%;
+  }
 }
 
 /* Small devices (landscape phones, 530px and up) */
